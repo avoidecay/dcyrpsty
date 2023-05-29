@@ -63,16 +63,13 @@ public class Biblioteca {
   void menu() throws IOException{
   	int opc=0;
   	do {
-  	  System.out.println("1-Prestar");
-  	  System.out.println("2-Devolver");
-  	  System.out.println("3-Mostrar");
-  	  System.out.println("4-Incrementar dia");
-  	  System.out.println("5-Restar Penalizaciones");
-  	  System.out.println("6-Alta Libro");
-  	  System.out.println("7-Alta Lector");
-  	  System.out.println("0-Fin");
+  	  mostrarMenu();
   	  opc=t.leerInt();
-  	  switch (opc){
+  	  seleccionarOpcion(opc);
+  	}while (opc!=0);
+  }
+void seleccionarOpcion(int opc) throws IOException {
+	switch (opc){
   	    case 1: prestar(); break;
   	    case 2: devolver(); break;
   	    case 3: mostrarPrestamos(); break;
@@ -81,8 +78,17 @@ public class Biblioteca {
   	    case 6: altaLibro(); break;
   	    case 7: altaLector(); break;
   	  }
-  	}while (opc!=0);
-  }
+}
+void mostrarMenu() {
+	System.out.println("1-Prestar");
+  	  System.out.println("2-Devolver");
+  	  System.out.println("3-Mostrar");
+  	  System.out.println("4-Incrementar dia");
+  	  System.out.println("5-Restar Penalizaciones");
+  	  System.out.println("6-Alta Libro");
+  	  System.out.println("7-Alta Lector");
+  	  System.out.println("0-Fin");
+}
   public static void main (String arg[]) throws IOException{
 	  Biblioteca b=new Biblioteca();
 	  b.menu();
